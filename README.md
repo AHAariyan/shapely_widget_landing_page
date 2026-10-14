@@ -1,7 +1,7 @@
 # Shapely Widgets landing page
 
 Static landing page for the Shapely Widgets Android app (`com.shapely.widgets`), served by GitHub Pages:
-**https://ahaariyan.github.io/shapely/** (repo `AHAariyan/shapely`).
+**https://ahaariyan.github.io/shapely_widget_landing_page/** (repo `AHAariyan/shapely_widget_landing_page`).
 
 - `index.html`, `styles.css`: the whole page. No build step, no frameworks, no web fonts, no trackers.
 - `assets/`: real widget renders (ShapeWidgets `docs/store/phone/`, caption cropped, as WebP), icons, `og.png`.

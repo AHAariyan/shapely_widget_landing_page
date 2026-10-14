@@ -5,20 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Shapely: aesthetic widgets for your home screen</title>
 <meta name="description" content="246 home screen widgets and 210 matching wallpapers in three looks. Style every clock, weather, calendar and photo widget your way. No ads, no account.">
-<link rel="canonical" href="https://ahaariyan.github.io/shapely/">
+<link rel="canonical" href="https://ahaariyan.github.io/shapely_widget_landing_page/">
 <meta name="theme-color" content="#6a4bd0">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Shapely: aesthetic widgets for your home screen">
 <meta property="og:description" content="246 widgets and 210 matching wallpapers in three looks. Style every one your way.">
-<meta property="og:url" content="https://ahaariyan.github.io/shapely/">
-<meta property="og:image" content="https://ahaariyan.github.io/shapely/assets/og.png">
+<meta property="og:url" content="https://ahaariyan.github.io/shapely_widget_landing_page/">
+<meta property="og:image" content="https://ahaariyan.github.io/shapely_widget_landing_page/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="styles.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Shapely Widgets","operatingSystem":"Android",
- "applicationCategory":"LifestyleApplication","url":"https://ahaariyan.github.io/shapely/",
+ "applicationCategory":"LifestyleApplication","url":"https://ahaariyan.github.io/shapely_widget_landing_page/",
  "installUrl":"https://play.google.com/store/apps/details?id=com.shapely.widgets",
  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
 </script>
@@ -40,10 +40,7 @@
         <h1>A home screen that <span>feels like yours.</span></h1>
         <p class="lead">246 widgets and 210 matching wallpapers, in three looks. Pick a clock, a calendar or your favourite photo, then make it your colour, your shape, your font.</p>
         <div class="cta">
-          <a class="btn btn-play" data-play href="https://play.google.com/store/apps/details?id=com.shapely.widgets">
-            <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M4 2.6v18.8c0 .5.5.8.9.6l16.3-9.4c.4-.2.4-.9 0-1.1L4.9 2c-.4-.2-.9.1-.9.6z"/></svg>
-            <span><small>Get it on</small>Google Play</span>
-          </a>
+          <a class="play-badge" data-play href="https://play.google.com/store/apps/details?id=com.shapely.widgets"><img src="assets/google-play-badge.png" alt="Get it on Google Play" width="215" height="64"></a>
           <p class="cta-note">Free for Android phones and tablets. No ads.</p>
         </div>
       </div>
@@ -189,10 +186,7 @@
     <div class="wrap final-in">
       <img src="assets/icon-192.png" alt="" width="96" height="96">
       <h2>Make it yours in a minute.</h2>
-      <a class="btn btn-play light" data-play href="https://play.google.com/store/apps/details?id=com.shapely.widgets">
-        <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M4 2.6v18.8c0 .5.5.8.9.6l16.3-9.4c.4-.2.4-.9 0-1.1L4.9 2c-.4-.2-.9.1-.9.6z"/></svg>
-        <span><small>Get it on</small>Google Play</span>
-      </a>
+      <a class="play-badge" data-play href="https://play.google.com/store/apps/details?id=com.shapely.widgets"><img src="assets/google-play-badge.png" alt="Get it on Google Play" width="215" height="64"></a>
     </div>
   </section>
 </main>
@@ -215,7 +209,7 @@
   var ref = "&referrer=" + encodeURIComponent(tags.join("&"));
   document.querySelectorAll("a[data-play]").forEach(function (a) { a.href += ref; });
   // Show the bar at the bottom only once the main button has scrolled away.
-  var bar = document.querySelector(".sticky"), hero = document.querySelector(".hero .btn-play");
+  var bar = document.querySelector(".sticky"), hero = document.querySelector(".hero .play-badge");
   if ("IntersectionObserver" in window) new IntersectionObserver(function (e) {
     bar.classList.toggle("on", !e[0].isIntersecting && e[0].boundingClientRect.top < 0);
   }).observe(hero);
