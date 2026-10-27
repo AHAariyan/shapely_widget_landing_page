@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shapely.matrabhed.com/sitemap.xml
