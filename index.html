@@ -184,6 +184,29 @@
     </div>
   </section>
 
+  <!-- Email list. Hidden until data-endpoint holds the provider's form URL (see the email-list README in the growth kit). -->
+  <section class="signup" id="signup" aria-labelledby="signup-h" data-endpoint="" data-field="email_address" hidden>
+    <div class="wrap">
+      <div class="su-card">
+        <div class="su-copy">
+          <h2 id="signup-h">Be first to see new widgets</h2>
+          <p>New widget drops, new looks and design ideas for your home screen.</p>
+        </div>
+        <form class="su-form" method="post" target="su-frame">
+          <label class="su-label" for="su-email">Email address</label>
+          <div class="su-row">
+            <input id="su-email" type="email" required autocomplete="email" inputmode="email" spellcheck="false" placeholder="you@example.com" aria-describedby="su-fine">
+            <button class="btn" type="submit">Subscribe</button>
+          </div>
+          <div class="su-trap" aria-hidden="true"><label>Leave this empty <input type="text" tabindex="-1" autocomplete="off"></label></div>
+          <p class="su-fine" id="su-fine">One short email when there's something new. Unsubscribe anytime. <a href="https://ahaariyan.github.io/shapely_widget_privacy/">Privacy policy</a></p>
+          <p class="su-status" role="status" aria-live="polite"></p>
+        </form>
+        <iframe name="su-frame" title="Signup response" hidden></iframe>
+      </div>
+    </div>
+  </section>
+
   <section class="final">
     <div class="wrap final-in">
       <img src="assets/icon-192.png" alt="" width="96" height="96">
@@ -215,6 +238,27 @@
   if ("IntersectionObserver" in window) new IntersectionObserver(function (e) {
     bar.classList.toggle("on", !e[0].isIntersecting && e[0].boundingClientRect.top < 0);
   }).observe(hero);
+})();
+// Email signup: the block stays hidden until data-endpoint on #signup holds the provider's form URL.
+// The form posts into a hidden iframe, so no backend or CORS is needed.
+(function () {
+  var box = document.getElementById("signup");
+  var url = box && (box.getAttribute("data-endpoint") || "").trim();
+  if (!url || url.indexOf("https://") !== 0) return;
+  var form = box.querySelector("form"), email = form.querySelector('input[type="email"]');
+  var trap = form.querySelector(".su-trap input"), note = box.querySelector(".su-status"), btn = form.querySelector("button");
+  form.action = url;
+  email.name = box.getAttribute("data-field") || "email_address";
+  box.hidden = false;
+  form.addEventListener("submit", function (e) {
+    if (trap.value) { e.preventDefault(); return; }
+    setTimeout(function () {
+      form.reset();
+      btn.disabled = true;
+      note.textContent = "Almost there. Check your inbox and tap the link to confirm.";
+      setTimeout(function () { btn.disabled = false; }, 4000);
+    }, 0);
+  });
 })();
 </script>
 </body>
